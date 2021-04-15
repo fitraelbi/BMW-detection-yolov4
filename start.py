@@ -178,8 +178,8 @@ async def predict_image(model_name: str, input_data: str):
 		output = await dl_service.run_model(model_name, input_data, draw=True, predict_batch=False)
 		error_logging.info('request successful;' + str(output))
 		# return FileResponse("./public/result.jpg", media_type="image/jpg")
-		
 		return {"url": "/public/result.jpg"}
+		
 	except ApplicationError as e:
 		error_logging.warning(model_name + ';' + str(e))
 		return ApiResponse(success=False, error=e)

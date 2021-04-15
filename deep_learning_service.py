@@ -43,6 +43,7 @@ class DeepLearningService:
             return True
         model_path = os.path.join(self.base_models_dir, model_name)
         try:
+            
             self.models_dict[model_name] = InferenceEngineFactory.get_engine(model_path)
             return True
         except ApplicationError as e:
